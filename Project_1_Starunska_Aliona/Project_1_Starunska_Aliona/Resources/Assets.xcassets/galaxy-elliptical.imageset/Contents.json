@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "galaxy-elliptical.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
