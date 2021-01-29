@@ -8,13 +8,13 @@
 import UIKit
 
 class SolarSystemCell: CollectionViewCell {
-    @IBOutlet weak private var nameLabel: UILabel!
-    @IBOutlet weak private var hostStarLabel: UILabel!
-    @IBOutlet weak private var numberOfPlanetsLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var hostStarLabel: UILabel!
+    @IBOutlet private weak var numberOfPlanetsLabel: UILabel!
     
     func configure(with item: SolarSystem) {
         nameLabel.text = item.name
-        hostStarLabel.text = item.host.name
+        hostStarLabel.text = item.host.name + "-" + item.host.type.rawValue
         numberOfPlanetsLabel.text = "\(item.planets.count)"
     }
 }

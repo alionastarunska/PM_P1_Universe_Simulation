@@ -31,6 +31,8 @@ class Star: GalaxyChild {
     
     weak var parent: StarDelegate?
     
+    var changeHandler: ((Star) -> Void)?
+    
     private(set) var name: String
     private(set) var type: Kind
     private(set) var evolution: EvolutionaryStage
@@ -84,6 +86,7 @@ extension Star: TimerHandler {
     func handleTick(_ seconds: Int) {
         if seconds % .evolutionTime == 0 {
             evolve()
+            changeHandler?(self)
         }
     }
 }

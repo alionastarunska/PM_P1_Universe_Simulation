@@ -9,11 +9,13 @@ import UIKit
 
 class PlanetCell: CollectionViewCell {
 
-    @IBOutlet weak var planetImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet private weak var planetImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var typeLabel: UILabel!
     
     func configure(with item: Planet) {
         planetImageView.image = item.type.image
         nameLabel.text = item.name
+        typeLabel.text = item.type.rawValue
     }
 }

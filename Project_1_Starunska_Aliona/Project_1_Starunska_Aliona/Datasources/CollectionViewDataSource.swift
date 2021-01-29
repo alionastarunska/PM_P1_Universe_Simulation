@@ -20,9 +20,10 @@ class CollectionViewDataSource<Cell: CollectionViewCell>: NSObject, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseIdentifier, for: indexPath) as? Cell
-        cell?.configure(with: items[indexPath.row])
-        return cell ?? UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseIdentifier, for: indexPath)
+        guard items.indices.contains(indexPath.row) else { return cell }
+        (cell as? Cell)?.configure(with: items[indexPath.row])
+        return cell
     }
 }
 

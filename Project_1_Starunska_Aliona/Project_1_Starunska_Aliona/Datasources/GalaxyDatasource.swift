@@ -22,15 +22,15 @@ class GalaxyDatasource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = items[indexPath.row]
         if let system = item as? SolarSystem {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SolarSystemCell.reuseIdentifier, for: indexPath) as? SolarSystemCell
-            cell?.configure(with: system)
-            return cell ?? UICollectionViewCell()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SolarSystemCell.reuseIdentifier, for: indexPath)
+            (cell as? SolarSystemCell)?.configure(with: system)
+            return cell
         } else if let star = item as? Star {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StarCell.reuseIdentifier, for: indexPath) as? StarCell
-            cell?.configure(with: star)
-            return cell ?? UICollectionViewCell()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StarCell.reuseIdentifier, for: indexPath)
+            (cell as? StarCell)?.configure(with: star)
+            return cell
         }
-        return UICollectionViewCell()
+        return collectionView.dequeueReusableCell(withReuseIdentifier: SolarSystemCell.reuseIdentifier, for: indexPath)
     }
 }
 

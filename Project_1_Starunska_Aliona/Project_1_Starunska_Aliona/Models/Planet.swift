@@ -9,11 +9,11 @@ import UIKit
 
 class Planet {
     
-    enum Kind: RandomizableEnum {
-        case gasGiant
-        case superEarth
-        case neptunian
-        case terrestrial
+    enum Kind: String, RandomizableEnum {
+        case gasGiant = "Gas Giant"
+        case superEarth = "Super Earth"
+        case neptunian = "Neptunian"
+        case terrestrial = "Terrestrial"
     }
     
     private(set) var name: String
@@ -35,14 +35,6 @@ class Planet {
         self.temperature = temperature
         self.radius = radius
         self.satelites = satelites
-    }
-}
-
-// MARK: - TimerHandler
-
-extension Planet: TimerHandler {
-    
-    func handleTick(_ seconds: Int) {
     }
 }
 

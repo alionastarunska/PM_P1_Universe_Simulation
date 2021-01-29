@@ -13,6 +13,9 @@ protocol SolarSystemDelegate: class {
 
 class SolarSystem: GalaxyChild {
     
+    var starChangeHandler: ((Star) -> Void)?
+    var planetsChangeHandler: (([Planet]) -> Void)?
+    
     var weight: Int {
         return host.weight + planets.map({ $0.weight }).reduce(0, +)
     }
@@ -20,8 +23,16 @@ class SolarSystem: GalaxyChild {
     weak var parent: SolarSystemDelegate?
     
     private(set) var name: String
-    private(set) var host: Star
-    private(set) var planets: [Planet]
+    private(set) var host: Star {
+        didSet {
+            starChangeHandler?(host)
+        }
+    }
+    private(set) var planets: [Planet] {
+        didSet {
+            planetsChangeHandler?(planets)
+        }
+    }
     
     init(name: String = .randomSolarSystemName ,host: Star, planets: [Planet] = [], parent: SolarSystemDelegate) {
         self.name = name
@@ -33,7 +44,7 @@ class SolarSystem: GalaxyChild {
     // MARK: - Private
     
     private func createPlanetIfNeeded(_ currentTime: Int) {
-        if currentTime % .planetCreationTime == 0, planets.count < .maxPlanets {
+        if currentTime % .planetCreationTime == .zero, planets.count < .maxPlanets {
             planets.append(Randomizer.makePlanet())
         }
     }
@@ -53,9 +64,6 @@ extension SolarSystem: StarDelegate {
 extension SolarSystem: TimerHandler {
     func handleTick(_ seconds: Int) {
         createPlanetIfNeeded(seconds)
-        planets.forEach({
-            $0.handleTick(seconds)
-        })
         host.handleTick(seconds)
     }
 }

@@ -10,6 +10,9 @@ import UIKit
 class UniverseViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var speedLabel: UILabel!
+    @IBOutlet private weak var slowDownButton: UIButton!
+    @IBOutlet private weak var speedUpButton: UIButton!
     private let timerService: TimerService = DefaultTimerService()
     private let datasource = CollectionViewDataSource<GalaxyCell>(items: [])
 
@@ -19,7 +22,22 @@ class UniverseViewController: UIViewController {
         setupHandler()
         timerService.start()
     }
-
+    
+    // MARK: - Actions
+    @IBAction private func slowDownAction(_ sender: Any) {
+        timerService.slowDown()
+        slowDownButton.isEnabled = timerService.currentSpeed != .normal
+        speedUpButton.isEnabled = true
+        speedLabel.text = timerService.currentSpeed.toString
+    }
+    
+    @IBAction private func speedUpAction(_ sender: Any) {
+        timerService.speedUp()
+        speedUpButton.isEnabled = timerService.currentSpeed != .max
+        slowDownButton.isEnabled = true
+        speedLabel.text = timerService.currentSpeed.toString
+    }
+    
     // MARK: - Private
     
     private func setupHandler() {

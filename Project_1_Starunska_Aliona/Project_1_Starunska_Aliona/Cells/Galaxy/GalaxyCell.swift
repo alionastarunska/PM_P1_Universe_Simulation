@@ -8,10 +8,10 @@
 import UIKit
 
 class GalaxyCell: CollectionViewCell {
-    @IBOutlet weak private var galaxyImageView: UIImageView!
-    @IBOutlet weak private var nameLabel: UILabel!
-    @IBOutlet weak private var typeLabel: UILabel!
-    @IBOutlet weak private var ageLabel: UILabel!
+    @IBOutlet private weak var galaxyImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var typeLabel: UILabel!
+    @IBOutlet private weak var ageLabel: UILabel!
     
     func configure(with item: Galaxy) {
         galaxyImageView.image = item.type.image

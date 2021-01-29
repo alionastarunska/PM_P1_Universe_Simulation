@@ -34,7 +34,7 @@ class GalaxyViewController: UIViewController {
         galaxy?.collapseHandler = { [weak self] in
             DispatchQueue.main.async {
                 let alert = UIAlertController.make(with: "Galaxy collapsed because of collision with another galaxy") { [weak self] in
-                    self?.navigationController?.popViewController(animated: true)
+                    self?.navigationController?.popToRootViewController(animated: true)
                 }
                 self?.present(alert, animated: true, completion: nil)
             }
@@ -49,6 +49,7 @@ class GalaxyViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.register(SolarSystemCell.self)
         collectionView.register(StarCell.self)
+        datasource.set(items: galaxy?.children ?? [])
         collectionView.dataSource = datasource
         collectionView.delegate = self
     }
@@ -58,7 +59,16 @@ class GalaxyViewController: UIViewController {
 
 extension GalaxyViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let item = galaxy?.children[indexPath.row]
+        if let system = item as? SolarSystem {
+            guard let solarSystemViewController: SolarSystemViewController = storyboard?.get() else { return }
+            solarSystemViewController.system = system
+            navigationController?.pushViewController(solarSystemViewController, animated: true)
+        } else if let star = item as? Star {
+            guard let starViewController: StarViewController = storyboard?.get() else { return }
+            starViewController.star = star
+            navigationController?.pushViewController(starViewController, animated: true)
+        }
     }
 }
 

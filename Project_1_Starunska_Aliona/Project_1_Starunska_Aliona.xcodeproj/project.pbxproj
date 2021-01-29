@@ -44,6 +44,10 @@
 		4B759C7E25B861270039B6AF /* PlanetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B759C7C25B861270039B6AF /* PlanetCell.swift */; };
 		4B759C7F25B861270039B6AF /* PlanetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B759C7D25B861270039B6AF /* PlanetCell.xib */; };
 		4BC1A69625BEF7E500DF9B18 /* Int+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC1A69525BEF7E500DF9B18 /* Int+Random.swift */; };
+		4BE4268625C1B25800796208 /* SolarSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4268525C1B25800796208 /* SolarSystemViewController.swift */; };
+		4BE4268B25C367DD00796208 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4268A25C367DD00796208 /* StarViewController.swift */; };
+		4BE4268E25C3694A00796208 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4268D25C3694A00796208 /* PlanetViewController.swift */; };
+		4BE4269125C3785E00796208 /* SolarSystemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4269025C3785E00796208 /* SolarSystemDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +90,10 @@
 		4B759C7C25B861270039B6AF /* PlanetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCell.swift; sourceTree = "<group>"; };
 		4B759C7D25B861270039B6AF /* PlanetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetCell.xib; sourceTree = "<group>"; };
 		4BC1A69525BEF7E500DF9B18 /* Int+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Random.swift"; sourceTree = "<group>"; };
+		4BE4268525C1B25800796208 /* SolarSystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemViewController.swift; sourceTree = "<group>"; };
+		4BE4268A25C367DD00796208 /* StarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
+		4BE4268D25C3694A00796208 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
+		4BE4269025C3785E00796208 /* SolarSystemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,9 @@
 			children = (
 				4B3B874E25B70B090035C891 /* UniverseViewController.swift */,
 				4B69F1A225C0D4B100127791 /* GalaxyViewController.swift */,
+				4BE4268525C1B25800796208 /* SolarSystemViewController.swift */,
+				4BE4268A25C367DD00796208 /* StarViewController.swift */,
+				4BE4268D25C3694A00796208 /* PlanetViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +260,7 @@
 			children = (
 				4B3B874A25B70A170035C891 /* CollectionViewDataSource.swift */,
 				4B69F1A625C0D78A00127791 /* GalaxyDatasource.swift */,
+				4BE4269025C3785E00796208 /* SolarSystemDataSource.swift */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -366,10 +378,14 @@
 				4B759C7E25B861270039B6AF /* PlanetCell.swift in Sources */,
 				4B69F1AA25C0DA3900127791 /* Alert+Init.swift in Sources */,
 				4B69F1A325C0D4B100127791 /* GalaxyViewController.swift in Sources */,
+				4BE4268B25C367DD00796208 /* StarViewController.swift in Sources */,
 				4B3B871425B58A1F0035C891 /* Star.swift in Sources */,
+				4BE4268E25C3694A00796208 /* PlanetViewController.swift in Sources */,
+				4BE4268625C1B25800796208 /* SolarSystemViewController.swift in Sources */,
 				4B0C444E25BEF6B4005B3234 /* RandomEnum.swift in Sources */,
 				4B69F1A025C0CA4100127791 /* TimerService.swift in Sources */,
 				4B3B871825B58A3D0035C891 /* Planet.swift in Sources */,
+				4BE4269125C3785E00796208 /* SolarSystemDataSource.swift in Sources */,
 				4B3B875825B710100035C891 /* TimerHandler.swift in Sources */,
 				4B3B873A25B707870035C891 /* UIView+IBInspectable.swift in Sources */,
 				4B3B874B25B70A170035C891 /* CollectionViewDataSource.swift in Sources */,

@@ -28,7 +28,7 @@ class Randomizer {
                 satelites.append(makeSatelite())
             }
         }
-        return Planet(satelites: [])
+        return Planet(satelites: satelites)
     }
     
     // MARK: - Private

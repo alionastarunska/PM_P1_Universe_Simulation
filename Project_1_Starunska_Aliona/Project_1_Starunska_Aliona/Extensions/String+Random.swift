@@ -19,7 +19,7 @@ extension String {
     
     static var randomStarName: String{
         var characters = Array<String>()
-        for _ in 0..<Int(arc4random_uniform(10)) {
+        for _ in 0..<(2 + Int(arc4random_uniform(8))) {
             characters.append(randomCharacter)
         }
         return characters.joined()
@@ -27,7 +27,7 @@ extension String {
     
     static var randomPlanetName: String{
         var characters = Array<String>()
-        for _ in 0..<Int(arc4random_uniform(5)) {
+        for _ in 0..<(2 + Int(arc4random_uniform(3))) {
             characters.append(randomCharacter)
         }
         characters.append("\(UInt32(arc4random_uniform(100)))")
@@ -38,6 +38,6 @@ extension String {
     
     private static var randomCharacter: String{
         let letters = "abcdefghijklmnopqrstuvwxyz"
-        return String(letters.map({ $0 }).randomElement() ?? "a")
+        return String(letters.map({ $0 }).randomElement() ?? "a").uppercased()
     }
 }
